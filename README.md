@@ -34,11 +34,11 @@ The system uses a supervisor-and-specialist pattern:
 
 ### Data flow architecture diagram
 
-![Data Flow Architecture Diagram](docs/dfd_mhc.drawio.png)
+![Data Flow Architecture Diagram](docs/images/dfd_mhc.drawio.png)
 
 ### Technical architecture diagram
 
-![Technical Architecture Diagram](docs/tech_mhc.drawio.png)
+![Technical Architecture Diagram](docs/images/tech_mhc.drawio.png)
 
 ### Core runtime flow
 1. Streamlit UI captures prompt and profile in app.py.
