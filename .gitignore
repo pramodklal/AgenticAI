@@ -1,0 +1,7 @@
+envaiagent/
+.env
+__pycache__/
+*.pyc
+.streamlit/
+~$*.pptx
+~$*.docx

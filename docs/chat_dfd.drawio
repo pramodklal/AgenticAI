@@ -1,0 +1,192 @@
+<mxfile host="app.diagrams.net" modified="2026-04-29T10:00:00.000Z" agent="GitHub Copilot" version="24.7.17" type="device">
+  <diagram id="chat-dfd-1" name="Prediabetes Chat DFD">
+    <mxGraphModel dx="1800" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="DFD: Prediabetes Prompt Chat Flow (MyHealthCoach)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;fontColor=#0C3D82;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="900" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="zone_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6F8FC;strokeColor=#D9E2F3;" vertex="1" parent="1">
+          <mxGeometry x="30" y="80" width="2100" height="840" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="zone_entities" value="External Entities" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1FB;strokeColor=#0C3D82;fontSize=13;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="30" y="80" width="300" height="840" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="zone_process" value="Agentic Processes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1FB;strokeColor=#0C3D82;fontSize=13;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="360" y="80" width="980" height="840" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="zone_store" value="Data Stores" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1FB;strokeColor=#0C3D82;fontSize=13;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="80" width="350" height="840" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="zone_external" value="External Services" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1FB;strokeColor=#0C3D82;fontSize=13;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="1750" y="80" width="380" height="840" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value="E1 User" style="shape=mxgraph.flowchart.terminator;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="70" y="140" width="220" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e2" value="E2 LangSmith" style="shape=mxgraph.flowchart.terminator;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="70" y="260" width="220" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p1" value="P1 Capture Prompt and Profile&#xa;prompt: I am a pre diabatic patient" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="420" y="130" width="360" height="95" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p2" value="P2 Build Initial State&#xa;conversation + user profile context" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="820" y="130" width="320" height="95" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p3" value="P3 Supervisor ReAct&#xa;decides relevant specialists for prediabetes" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="420" y="270" width="360" height="105" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p4" value="P4 Dietitian Specialist ReAct&#xa;nutrition and blood sugar friendly recommendations" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="820" y="270" width="430" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p5" value="P5 Fitness Specialist ReAct&#xa;safe activity and fat loss plan" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="820" y="395" width="430" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p6" value="P6 Wellness Specialist ReAct&#xa;sleep, stress, hydration, recovery" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="820" y="520" width="430" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p7" value="P7 Supervisor Synthesis&#xa;merge specialist facts + add safety notes" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="420" y="520" width="360" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p8" value="P8 Optional Provider Offer&#xa;ask user if nearby doctor lookup is needed" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="420" y="645" width="360" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p9" value="P9 Live Evaluation&#xa;score routing, grounding, safety, latency" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="420" y="770" width="360" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="d1" value="D1 User Context&#xa;health_data.get_user_context" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="140" width="250" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="d2" value="D2 Sleep and Workout Summaries&#xa;tool observations" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="270" width="250" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="d3" value="D3 Wellness and Nutrition Docs&#xa;retrieval context" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="400" width="250" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="d4" value="D4 Collected Facts and Eval&#xa;debug expander payload" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="770" width="250" height="95" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s1" value="S1 Azure OpenAI&#xa;supervisor + specialist reasoning" style="shape=mxgraph.flowchart.predefinedProcess;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="1810" y="160" width="280" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s2" value="S2 NPI / Nominatim / Overpass&#xa;only if user asks to find providers" style="shape=mxgraph.flowchart.predefinedProcess;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=12;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="1810" y="560" width="280" height="95" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="f1" value="Prompt + profile" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="e1" target="p1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f2" value="Initial state" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="p1" target="p2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f3" value="Context query" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="p2" target="d1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f4" value="Enriched state" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="p2" target="p3" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="f5" value="Consult dietitian" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="p3" target="p4" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f6" value="Consult fitness" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="p3" target="p5" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f7" value="Consult wellness" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="p3" target="p6" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="f8" value="Nutrition docs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="p4" target="d3" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f9" value="Workout summary" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="p5" target="d2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f10" value="Sleep/wellness data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="p6" target="d2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="f11" value="Specialist facts" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="p4" target="p7" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f12" value="Specialist facts" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="p5" target="p7" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f13" value="Specialist facts" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="p6" target="p7" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="f14" value="Final response" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="p7" target="e1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f15" value="Offer doctor lookup" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="p7" target="p8" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f16" value="Optional provider APIs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="p8" target="s2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="f17" value="Trace spans" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="p3" target="e2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f18" value="Trace spans" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="p4" target="e2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f19" value="Trace spans" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="p5" target="e2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f20" value="Trace spans" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="p6" target="e2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="f21" value="LLM calls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="p3" target="s1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f22" value="LLM calls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="p4" target="s1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f23" value="LLM calls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="p5" target="s1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f24" value="LLM calls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="p6" target="s1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="f25" value="Response + facts" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="p7" target="p9" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f26" value="Evaluation output" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="p9" target="d4" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f27" value="Show Collected facts and evaluation" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="d4" target="e1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="legend" value="Legend: E = External Entity, P = Process, D = Data Store, S = External Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1FB;strokeColor=#0C3D82;fontSize=11;align=left;spacingLeft=8;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="70" y="940" width="700" height="42" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="chat-dfd-2" name="Classroom 6-Box Flow">
+    <mxGraphModel dx="1360" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="c_title" value="Prediabetes Chat: Simplified Agentic AI Flow (6 Boxes)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;fontColor=#0C3D82;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="900" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6F8FC;strokeColor=#D9E2F3;" vertex="1" parent="1">
+          <mxGeometry x="30" y="80" width="1460" height="570" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c1" value="1) User Prompt&#xa;I am a pre diabetic patient" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1FB;strokeColor=#0C3D82;fontSize=14;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="70" y="140" width="210" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c2" value="2) Build Context State&#xa;profile + history + goals" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=14;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="320" y="140" width="220" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c3" value="3) Supervisor ReAct&#xa;decides which specialists to call" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=14;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="580" y="140" width="240" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c4" value="4) Specialist Agents + Tools&#xa;dietitian, fitness, wellness&#xa;docs + summaries + context" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=14;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="860" y="140" width="270" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c5" value="5) Final Synthesis + Safety&#xa;actionable plan + consult provider note" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1FB;strokeColor=#0C3D82;fontSize=14;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="140" width="260" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c6" value="6) Output + Evaluation&#xa;response shown to user&#xa;facts, score, traces in LangSmith" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0C3D82;fontSize=14;fontStyle=1;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="520" y="340" width="320" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ce1" value="prompt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="c1" target="c2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ce2" value="state" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="c2" target="c3" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ce3" value="routing" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="c3" target="c4" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ce4" value="facts" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="c4" target="c5" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ce5" value="final answer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="c5" target="c6" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ce6" value="observability" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;dashed=1;strokeColor=#0C3D82;fontColor=#0C3D82;" edge="1" source="c3" target="c6" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="c_note" value="Classroom Tip: explain this as Plan -> Delegate -> Tool Evidence -> Synthesize -> Evaluate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1FB;strokeColor=#0C3D82;fontSize=12;align=left;spacingLeft=8;fontColor=#222222;" vertex="1" parent="1">
+          <mxGeometry x="70" y="560" width="1360" height="50" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,149 @@
+<mxfile host="app.diagrams.net" modified="2026-04-25T12:00:00.000Z" agent="GitHub Copilot" version="24.7.17" type="device">
+  <diagram id="mhc-arch-1" name="Technical Architecture">
+    <mxGraphModel dx="1800" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="MyHealthCoach - Technical Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="620" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="zone_client" value="Client Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="80" width="330" height="250" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="zone_app" value="Application and Agent Orchestration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="80" width="860" height="560" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="zone_data" value="Data and External APIs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="80" width="560" height="560" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="zone_obs" value="Observability and Evaluation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="360" width="330" height="280" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="zone_devops" value="Dev and Regression Pipeline" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="670" width="1810" height="240" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_user" value="User&#xa;[U]" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="135" width="90" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_streamlit" value="[UI] Streamlit&#xa;app.py&#xa;profile inputs + chat&#xa;live debug panel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="120" width="160" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_workflow" value="[WF] LangGraph Workflow&#xa;load_context -&gt; supervisor -&gt; END&#xa;graph/workflow.py" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="120" width="250" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_state" value="[ST] State Model&#xa;HealthCoachState&#xa;conversation + profile + facts + response" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="120" width="250" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_supervisor" value="[AG] Supervisor ReAct&#xa;run_supervisor_react()&#xa;routes to specialists&#xa;triggers doctor lookup" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="280" width="340" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_domains" value="[SP] Domain Advisors&#xa;wellness | fitness | dietitian&#xa;mental | maternal | women&#xa;run_domain_react()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="280" width="430" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_tools" value="[TL] Advisor Tools&#xa;user_context | sleep_summary&#xa;workout_summary | wellness_docs | nutrition_docs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="460" width="390" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_doclookup" value="[MD] Doctor Finder&#xa;_lookup_nearby_doctors()&#xa;India: Nominatim + Overpass&#xa;US: NPI Registry&#xa;radius: 15 km" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="460" width="380" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_aoai" value="[LLM] Azure OpenAI&#xa;gpt-4o deployment&#xa;reasoning engine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="120" width="240" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_cosmos" value="[DB] Azure Cosmos DB&#xa;user context + future state persistence&#xa;current: stub-backed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="250" width="240" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_search" value="[SRCH] Azure AI Search&#xa;wellness + nutrition indexes&#xa;RAG retrieval" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="390" width="240" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_storage" value="[FS] Azure File Share&#xa;wellness doc source" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="520" width="240" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_npi" value="[API] NPI Registry&#xa;US doctor lookup" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="120" width="220" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_nom" value="[API] Nominatim&#xa;India pincode -&gt; lat/lon" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="260" width="220" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_overpass" value="[API] Overpass&#xa;OSM clinic/hospital lookup" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="400" width="220" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_langsmith" value="[OBS] LangSmith&#xa;traces, tools, latency, tokens&#xa;experiment run IDs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="400" width="260" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_eval" value="[EVAL] Criteria Engine&#xa;evaluation/criteria.py&#xa;6 weighted checks + overall score" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="530" width="260" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_pipeline" value="[BATCH] Regression Runner&#xa;scripts/run_batch_eval.py&#xa;20 fixed prompts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="715" width="300" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_feedback" value="[FB] Feedback Mapper&#xa;langsmith_feedback.py&#xa;criteria -&gt; LangSmith keys&#xa;submit by run_id" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="715" width="340" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_artifacts" value="[OUT] Eval Artifacts&#xa;artifacts/eval/&#xa;report.json, summary.csv&#xa;feedback_mapping.jsonl&#xa;derived_run_ids.json" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="810" y="715" width="340" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n_deploy" value="[DEPLOY] Azure Target (planned)&#xa;App Service + Managed Identity + RBAC&#xa;App Insights + Monitor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=12;align=left;spacingLeft=8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="715" width="340" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="legend" value="Icon Labels: [U]=User, [UI]=Frontend, [WF]=Workflow, [AG]=Agent, [SP]=Specialist, [TL]=Tools, [MD]=Doctor Router, [LLM]=Model, [DB]=Database, [API]=External API, [OBS]=Observability, [EVAL]=Evaluation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=11;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="715" width="260" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value="chat request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="n_user" target="n_streamlit" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" value="invoke graph" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="n_streamlit" target="n_workflow" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" value="state" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="n_workflow" target="n_state" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" value="route + orchestrate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="n_workflow" target="n_supervisor" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" value="consult" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="n_supervisor" target="n_domains" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" value="tool calls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="n_domains" target="n_tools" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" value="doctor lookup" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" source="n_supervisor" target="n_doclookup" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="e8" value="LLM calls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#d6b656;" edge="1" source="n_supervisor" target="n_aoai" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e9" value="LLM calls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#d6b656;" edge="1" source="n_domains" target="n_aoai" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e10" value="user context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#d6b656;" edge="1" source="n_tools" target="n_cosmos" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e11" value="RAG query" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#d6b656;" edge="1" source="n_tools" target="n_search" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e12" value="source docs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#d6b656;" edge="1" source="n_storage" target="n_search" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="e13" value="US zip" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#d6b656;" edge="1" source="n_doclookup" target="n_npi" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e14" value="India pincode" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#d6b656;" edge="1" source="n_doclookup" target="n_nom" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e15" value="lat/lon" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#d6b656;" edge="1" source="n_nom" target="n_overpass" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="e16" value="traces" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#b85450;" edge="1" source="n_supervisor" target="n_langsmith" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e17" value="live scoring" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#b85450;" edge="1" source="n_streamlit" target="n_eval" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="e18" value="run 20 prompts" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#9673a6;" edge="1" source="n_pipeline" target="n_eval" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e19" value="map scores" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#9673a6;" edge="1" source="n_eval" target="n_feedback" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e20" value="submit feedback by run_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#9673a6;" edge="1" source="n_feedback" target="n_langsmith" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e21" value="write reports" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#9673a6;" edge="1" source="n_pipeline" target="n_artifacts" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e22" value="azure-ready" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#9673a6;" edge="1" source="n_pipeline" target="n_deploy" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
