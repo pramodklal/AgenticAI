@@ -220,6 +220,30 @@ python scripts/run_batch_eval.py --submit-to-langsmith --experiment-export-file 
 - Enforce dependency and vulnerability scanning in CI.
 - Add automated regression run as part of PR validation.
 
+## Pre-commit secret protection
+
+This repository includes a pre-commit setup that blocks commits when potential secrets are detected.
+
+Configured checks:
+- gitleaks secret scan
+- private key detection
+- merge conflict marker detection
+
+### One-time setup
+
+```powershell
+pip install pre-commit
+pre-commit install
+```
+
+### Run manually on all files
+
+```powershell
+pre-commit run --all-files
+```
+
+If a commit is blocked, remove or replace sensitive values with placeholders and commit again.
+
 ## Publish to Git repository
 
 1. Ensure .env and any secret files are in .gitignore.
