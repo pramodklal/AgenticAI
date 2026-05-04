@@ -9,6 +9,60 @@ from dotenv import load_dotenv
 load_dotenv(override=False)
 
 
+_SECRET_KEYS = (
+    "AZURE_OPENAI_ENDPOINT",
+    "AZURE_OPENAI_API_KEY",
+    "AZURE_OPENAI_DEPLOYMENT",
+    "AZURE_OPENAI_API_VERSION",
+    "COSMOS_ENDPOINT",
+    "COSMOS_DATABASE_NAME",
+    "COSMOS_STATE_CONTAINER",
+    "COSMOS_USER_CONTAINER",
+    "COSMOS_WORKOUT_CONTAINER",
+    "AZURE_SEARCH_ENDPOINT",
+    "AZURE_SEARCH_API_KEY",
+    "AZURE_SEARCH_WELLNESS_INDEX",
+    "AZURE_SEARCH_NUTRITION_INDEX",
+    "AZURE_STORAGE_CONNECTION_STRING",
+    "AZURE_FILE_SHARE_NAME",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING",
+    "KEY_VAULT_URL",
+    "LANGSMITH_TRACING",
+    "LANGSMITH_ENDPOINT",
+    "LANGSMITH_API_KEY",
+    "LANGSMITH_PROJECT",
+)
+
+
+def _load_streamlit_secrets_into_env() -> None:
+    try:
+        import streamlit as st
+    except Exception:
+        return
+
+    try:
+        secrets = st.secrets
+    except Exception:
+        return
+
+    env_section = secrets.get("env", {}) if hasattr(secrets, "get") else {}
+    for key in _SECRET_KEYS:
+        if os.getenv(key):
+            continue
+
+        value = None
+        if hasattr(secrets, "get"):
+            value = secrets.get(key)
+        if value is None and hasattr(env_section, "get"):
+            value = env_section.get(key)
+
+        if value is not None:
+            os.environ[key] = str(value)
+
+
+_load_streamlit_secrets_into_env()
+
+
 @dataclass(frozen=True)
 class Settings:
     azure_openai_endpoint: str = os.getenv("AZURE_OPENAI_ENDPOINT", "")
