@@ -56,6 +56,7 @@ _DOMAIN_HINTS: Dict[str, tuple[str, ...]] = {
     "wellness": ("sleep", "recovery", "fatigue", "wellness", "stress"),
     "fitness": ("workout", "training", "exercise", "gym", "fitness"),
     "dietitian": ("diet", "meal", "nutrition", "protein", "calorie", "food"),
+    "medicines": ("medicine", "medicines", "medication", "medications", "tablet", "pill", "drug", "symptom"),
     "mental_health": ("anxiety", "mood", "mental", "overwhelm", "depress", "panic"),
     "maternal_health": ("pregnan", "prenatal", "postpartum", "obstetric", "maternal"),
     "women_health": ("period", "pcos", "menopause", "gyne", "women"),
@@ -84,6 +85,84 @@ _SAFETY_HINTS: tuple[str, ...] = (
     "suicid",
     "panic",
     "chest pain",
+    "shortness of breath",
+    "breathless",
+    "can not breathe",
+    "faint",
+    "fainted",
+    "dizzy",
+    "confusion",
+    "disoriented",
+    "seizure",
+    "convulsion",
+    "stroke",
+    "paralysis",
+    "numbness",
+    "slurred speech",
+    "vision loss",
+    "persistent vomiting",
+    "dehydrat",
+    "blood in stool",
+    "black stool",
+    "vomit blood",
+    "high blood pressure",
+    "very high sugar",
+    "low sugar",
+    "hypogly",
+    "allergic reaction",
+    "anaphyl",
+    "swelling face",
+    "swelling throat",
+    "self harm",
+    "kill myself",
+    "hopeless",
+    "hallucinat",
+    "psychosis",
+    "mania",
+    "postpartum depression",
+)
+
+
+_FEVER_LIKE_HINTS: tuple[str, ...] = (
+    "fever",
+    "high temperature",
+    "temperature",
+    "chills",
+    "body ache",
+    "flu",
+    "viral",
+    "infection",
+    "symptom",
+    "cold",
+    "cough",
+    "dry cough",
+    "wet cough",
+    "sore throat",
+    "throat pain",
+    "runny nose",
+    "blocked nose",
+    "congestion",
+    "headache",
+    "migraine",
+    "fatigue",
+    "weakness",
+    "shiver",
+    "sweating",
+    "night sweats",
+    "nausea",
+    "vomit",
+    "diarrhea",
+    "stomach bug",
+    "sinus",
+    "ear pain",
+    "loss of smell",
+    "loss of taste",
+    "covid",
+    "dengue",
+    "malaria",
+    "typhoid",
+    "throat infection",
+    "chest infection",
 )
 
 
@@ -99,6 +178,11 @@ def _contains_any(text: str, hints: Iterable[str]) -> bool:
 def infer_expected_domains(user_message: str) -> Set[str]:
     normalized = _normalize(user_message)
     domains: Set[str] = set()
+
+    # Fever/symptom-style prompts are best handled by wellness and medicines together.
+    if any(hint in normalized for hint in _FEVER_LIKE_HINTS):
+        domains.update({"wellness", "medicines"})
+
     for domain, hints in _DOMAIN_HINTS.items():
         if any(hint in normalized for hint in hints):
             domains.add(domain)
@@ -117,6 +201,14 @@ def _score_domain_routing(user_message: str, collected_facts: Dict[str, Any]) ->
     observed = _extract_observed_domains(collected_facts)
     if not expected:
         return 1.0
+
+    # Count wellness and medicines together for fever-like/symptom queries.
+    if {"wellness", "medicines"}.issubset(expected) and (
+        "wellness" in observed or "medicines" in observed
+    ):
+        observed = set(observed)
+        observed.update({"wellness", "medicines"})
+
     overlap = len(expected.intersection(observed)) / len(expected)
     if observed and overlap == 1.0:
         return 1.0

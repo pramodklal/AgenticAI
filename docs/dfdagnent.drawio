@@ -1,0 +1,128 @@
+﻿<mxfile host="app.diagrams.net" modified="2026-05-03T12:30:00.000Z" agent="GitHub Copilot" version="24.7.17" type="device">
+  <diagram id="myhealthcoach-dfd-clean" name="MyHealthCoach DFD (Readable)">
+    <mxGraphModel dx="1720" dy="980" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2800" pageHeight="1800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="MyHealthCoach Data Flow Diagram (Readable, 8 Agents)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="subtitle" value="8 Agents = 1 Supervisor + 7 Specialist Agents" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=13;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="58" width="540" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lane1" value="Input and Orchestration" style="swimlane;html=1;startSize=28;rounded=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="1260" height="260" as="geometry" />
+        </mxCell>
+
+        <mxCell id="user" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="lane1">
+          <mxGeometry x="30" y="90" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui" value="Streamlit UI&#xa;app.py&#xa;(chat input/output + sidebar toggles)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="lane1">
+          <mxGeometry x="230" y="75" width="280" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="workflow" value="LangGraph Workflow&#xa;build_graph()&#xa;(graph.invoke)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="lane1">
+          <mxGeometry x="570" y="78" width="240" height="95" as="geometry" />
+        </mxCell>
+
+        <mxCell id="supervisor" value="Agent 1: Supervisor Agent&#xa;run_supervisor_react()&#xa;- routes domains&#xa;- calls specialists&#xa;- synthesizes final answer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="lane1">
+          <mxGeometry x="860" y="60" width="360" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lane2" value="Specialist Agent Layer (7 Specialists)" style="swimlane;html=1;startSize=28;rounded=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="390" width="1760" height="420" as="geometry" />
+        </mxCell>
+
+        <mxCell id="wellness" value="Agent 2&#xa;Wellness Agent&#xa;consult_wellness_advisor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane2">
+          <mxGeometry x="30" y="60" width="220" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="fitness" value="Agent 3&#xa;Fitness Agent&#xa;consult_fitness_advisor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane2">
+          <mxGeometry x="280" y="60" width="220" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="dietitian" value="Agent 4&#xa;Dietitian Agent&#xa;consult_dietitian_advisor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane2">
+          <mxGeometry x="530" y="60" width="220" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="medicines" value="Agent 5&#xa;Medicines Agent&#xa;consult_medicines_advisor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane2">
+          <mxGeometry x="780" y="60" width="220" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="mental" value="Agent 6&#xa;Mental Health Agent&#xa;consult_mental_health_advisor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane2">
+          <mxGeometry x="1030" y="60" width="220" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="maternal" value="Agent 7&#xa;Maternal Health Agent&#xa;consult_maternal_health_advisor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane2">
+          <mxGeometry x="1280" y="60" width="220" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="women" value="Agent 8&#xa;Women Health Agent&#xa;consult_women_health_advisor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane2">
+          <mxGeometry x="1530" y="60" width="220" height="95" as="geometry" />
+        </mxCell>
+
+        <mxCell id="facts" value="Data Store: collected_facts&#xa;{domain: {recommendation, rationale,&#xa;safety_note, confidence}}" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="lane2">
+          <mxGeometry x="530" y="220" width="430" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="doctorlookup" value="Tool: find_nearby_doctors&#xa;(NPI US / OSM India)&#xa;nearest-first results" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="lane2">
+          <mxGeometry x="1020" y="220" width="320" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="services" value="External Services&#xa;Azure OpenAI&#xa;Azure AI Search&#xa;User context/summaries" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="lane2">
+          <mxGeometry x="30" y="220" width="430" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lane3" value="Scoring and Output" style="swimlane;html=1;startSize=28;rounded=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="840" width="1260" height="280" as="geometry" />
+        </mxCell>
+
+        <mxCell id="evaluation" value="Evaluation Engine&#xa;criteria.py&#xa;- 6 checks&#xa;- overall_score&#xa;- pass/fail&#xa;- LangSmith feedback payload" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="lane3">
+          <mxGeometry x="330" y="90" width="300" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="assistantout" value="Assistant Output&#xa;- final_response&#xa;- per-agent responses&#xa;- optional debug JSON" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="lane3">
+          <mxGeometry x="700" y="90" width="280" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend" value="Legend:&#xa;Blue = UI/User&#xa;Purple = Orchestration/Eval&#xa;Green = Specialist agents&#xa;Yellow = Tools/Data stores" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;fontSize=11;" vertex="1" parent="lane3">
+          <mxGeometry x="30" y="90" width="250" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" value="1) user query" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="1" source="user" target="ui"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" value="2) initial_state" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="1" source="ui" target="workflow"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" value="3) run supervisor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="1" source="workflow" target="supervisor"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e4" value="route + tool calls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#9673a6;" edge="1" parent="1" source="supervisor" target="wellness"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#9673a6;" edge="1" parent="1" source="supervisor" target="fitness"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#9673a6;" edge="1" parent="1" source="supervisor" target="dietitian"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#9673a6;" edge="1" parent="1" source="supervisor" target="medicines"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#9673a6;" edge="1" parent="1" source="supervisor" target="mental"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#9673a6;" edge="1" parent="1" source="supervisor" target="maternal"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#9673a6;" edge="1" parent="1" source="supervisor" target="women"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e11" value="facts" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#82b366;" edge="1" parent="1" source="wellness" target="facts"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#82b366;" edge="1" parent="1" source="fitness" target="facts"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#82b366;" edge="1" parent="1" source="dietitian" target="facts"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#82b366;" edge="1" parent="1" source="medicines" target="facts"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#82b366;" edge="1" parent="1" source="mental" target="facts"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#82b366;" edge="1" parent="1" source="maternal" target="facts"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#82b366;" edge="1" parent="1" source="women" target="facts"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e18" value="tool context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#b85450;" edge="1" parent="1" source="services" target="wellness"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#b85450;" edge="1" parent="1" source="services" target="fitness"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#b85450;" edge="1" parent="1" source="services" target="dietitian"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#b85450;" edge="1" parent="1" source="services" target="medicines"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#b85450;" edge="1" parent="1" source="services" target="mental"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#b85450;" edge="1" parent="1" source="services" target="maternal"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#b85450;" edge="1" parent="1" source="services" target="women"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e25" value="doctor search request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#d6b656;" edge="1" parent="1" source="supervisor" target="doctorlookup"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e26" value="doctor results" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#d6b656;" edge="1" parent="1" source="doctorlookup" target="facts"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e27" value="4) final_response + collected_facts" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="1" source="supervisor" target="workflow"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e28" value="5) evaluate_agentic_run" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="1" source="workflow" target="evaluation"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e29" value="6) render response" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="1" source="workflow" target="assistantout"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e30" value="7) display to user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;" edge="1" parent="1" source="assistantout" target="user"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
